@@ -17,7 +17,8 @@ StartState::StartState(StateMachine* machine) :
 
 void StartState::InsertCard()
 {
-	m_stateMachine->SetCurrentState(make_shared<CardInsertedState>(m_stateMachine));
+	shared_ptr<CardInsertedState> state(new CardInsertedState(m_stateMachine));
+	m_stateMachine->SetCurrentState(state);
 	cout << "Card Inserted!\n";
 }
 

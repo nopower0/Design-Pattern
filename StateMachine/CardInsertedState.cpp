@@ -37,6 +37,7 @@ void CardInsertedState::Save()
 
 void CardInsertedState::GetCard()
 {
-	m_stateMachine->SetCurrentState(make_shared<StartState>(m_stateMachine));
+	shared_ptr<StartState> state(new StartState(m_stateMachine));
+	m_stateMachine->SetCurrentState(state);
 	cout << "Please Get Your Card ASAP!\n";
 }
